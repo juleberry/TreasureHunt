@@ -1,0 +1,17 @@
+// --------------
+// -- GAMEPLAY --
+// --------------
+  // 'heads or tails' to see who goes first for the game, user or cpu
+  // create sorted treasureMap
+  // round 1 reviews contents of treasureMap[0], round 2 for treasureMap[1], round 3 for treasureMap[3], etc
+  // based on whoever goes first...
+  // user selects a whole number between 0 and 5 (via buttons that stand for 1, 2, 3, 4, or 5, considered 'user input')
+  // then, computer "picks" a number between 0 and 5
+  // if user number > cpu number, user wins the space
+  // if user number < cpu number, cpu wins the space
+  // if user number === cpu number, no one wins the space, but space is revealed: "Oh no! You missed a treasure!" or "Whew! It was just a rock!"
+  // if winner, if space is a "string" aka treasure, winner "found" a treasure -- `${winner} found a treasure!`
+  // if winner, if space is not a string aka number, winner "found" a rock -- `Oh no! ${winner} found a rock.`
+  // next round - round increases by 1, treasureMap index increases 1, based on treasureMap.length
+  // end of game - once rounds complete, compares total treasures found by user vs cpu to determine winner, winner "animation"
+  // reset game - user & cpu treasures found values return to 0
