@@ -3,15 +3,17 @@
 // *-*-*-*-*-*-*-*-*-*-*-*
 
 // create array to hold numbers from 1-20 and the 7 treasure locations will replace 7 of the numbers
-// create array of treasures 't'; default is 7 (can be expanded later)
+// create array of treasures 'T'; default is 7 (can be expanded later)
+// add number to each "T" to test indexOf for testing
 const treasures = []
-for ( i = 1; i <= 7; i++) {
-  treasures.push('t');
+for (i = 1; i <= 7; i++) {
+  treasures.push('Treasure ' + i);
 }
 
 // array of numbers 1 through 20
+// treasure locations will need to subtract from the amount of treasures "hidden" within the game
 const treasureLocations = []
-for ( i = 1; i <= 20; i++) {
+for (i = 1; i <= 20 - treasures.length; i++) {
   treasureLocations.push(i)
 }
 
@@ -26,6 +28,8 @@ const shuffle = (totalTreasures) => {
 }
   shuffle(treasureMap)
   console.log(treasureMap)
+  console.log(treasureMap.indexOf("T5"))
+  // console.log(treasures)
 
   // next code block
   // to win space, code will check if contents of the array index is a string (true or false) and will output the winner based on comparison of user's chosen number vs cpu's randomized number between 1 and maybe 6
