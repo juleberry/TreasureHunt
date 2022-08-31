@@ -166,8 +166,8 @@ const pickSpot = () => {
     // then reveal if space is treasure and do not log to any player's 
     cpuPlayer.revealTreasure(round)
   }
-} while (currentRound <= 20)
-if (currentRound > 20) {
+} while (currentRound <= 19)
+if (currentRound = 20) {
   endGame()
 }
 }
@@ -201,6 +201,7 @@ const startGame = () => {
   console.log(`Round ${currentRound}`)
   loadMap()
   firstChoice()
+  endGame()
 }
 
 // =================
@@ -223,9 +224,10 @@ const endGame = () => {
     console.log(`${humanPlayer.name} collected ${humanPlayer.treasuresFound} treasures.`)
     console.log(`${cpuPlayer.name} collected ${cpuPlayer.treasuresFound} treasures.`)
     console.log(`${cpuPlayer.name} wins! Better luck next time.`)
+    return
   }
 }
 
-// startGame()
+startGame()
 
 // fix infinite loop at end of game

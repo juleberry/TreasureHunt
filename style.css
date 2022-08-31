@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+body {
+  background-color: black;
+  margin: 0;
+}
+
+div {
+  text-align: center;
+}
+
+#welcome-container {
+  justify-content: center;
+  align-items: center;
+  background-color: goldenrod;
+  height: 100vh;
+}
+
+.centered-welcome {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.welcome-screen {
+  z-index: 1;
+  padding-top: 25%;
+  
+}
+
+#treasure-map-blank {
+  width: 90vh;
+  margin-top: 50px;
+  z-index: 0;
+}
+
+#game-title {
+  font-family: 'Pirata One', cursive;
+  font-size: 3rem;
+}
+
+#game-intro {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  font-weight: bold;
+  justify-content: center;
+}
