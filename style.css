@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
 body {
-  background-color: black;
+  background: linear-gradient(45deg, yellow, red
+  );
   margin: 0;
 }
 
@@ -11,7 +12,7 @@ div {
 #welcome-container {
   justify-content: center;
   align-items: center;
-  background-color: goldenrod;
+  /* background-color: goldenrod; */
   height: 100vh;
 }
 
@@ -28,6 +29,21 @@ div {
   
 }
 
+#start {
+  border-radius: 3px;
+  font-size: 1em;
+  padding: .5em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: white;
+  font-weight: bold;
+  background-color: rgb(112, 112, 112);
+}
+
+#start:hover {
+  background-color: green;
+  color: black
+}
+
 #treasure-map-blank {
   width: 90vh;
   margin-top: 50px;
@@ -37,6 +53,7 @@ div {
 #game-title {
   font-family: 'Pirata One', cursive;
   font-size: 3rem;
+  letter-spacing: .1em;
 }
 
 #game-intro {
