@@ -187,7 +187,7 @@ const isWinner = () => {
 const nextRound = () => {
   round++
   currentRound++
-  console.log(`Round ${currentRound}.\nGet ready to choose a space...`)
+  console.log(`Round ${currentRound}\nGet ready to choose a space...`)
   showChoices()
 }
 
@@ -222,4 +222,8 @@ const endGame = () => {
   }
 }
 
-startGame()
+// gameplay buttons
+let startButton = document.getElementById('start');
+  startButton.addEventListener('click', () => {
+    startGame()
+  });
