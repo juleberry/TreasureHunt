@@ -135,7 +135,7 @@ const firstChoice = () => {
     console.log(`${humanPlayer.name} chooses first!`);
     showChoices()
   } else {
-    console.log(`The computer chooses first!`);
+    console.log(`${cpuPlayer.name} chooses first!`);
     showChoices()
   }
 };
@@ -153,23 +153,20 @@ if (humanChoice > cpuChoice) {
   }
 }
 const pickSpot = () => {
-  do {
-  if (isTie() === true) {
-    console.log(`It's a tie! Let's see if there was a treasure...`);
-    cpuPlayer.revealTreasure(round)
-  } else if (isWinner() === true) {
-    console.log(`${humanPlayer.name} digs for a treasure!\nLet's see what you found...`);
-    // then reveal if space is treasure and log to winner's score
-    humanPlayer.revealTreasure(round)
-  } else {
-    console.log(`${cpuPlayer.name} digs for a treasure!\nLet's see if there was a treasure...`);
-    // then reveal if space is treasure and do not log to any player's 
-    cpuPlayer.revealTreasure(round)
+  while (currentRound <= 19) {
+    if (isTie() === true) {
+      console.log(`It's a tie! Let's see if there was a treasure...`);
+      cpuPlayer.revealTreasure(round)
+    } else if (isWinner() === true) {
+      console.log(`${humanPlayer.name} digs for a treasure!\nLet's see what you found...`);
+      // then reveal if space is treasure and log to winner's score
+      humanPlayer.revealTreasure(round)
+    } else {
+      console.log(`${cpuPlayer.name} digs for a treasure!\nLet's see if there was a treasure...`);
+      // then reveal if space is treasure and do not log to any player's 
+      cpuPlayer.revealTreasure(round)
+    }
   }
-} while (currentRound <= 19)
-if (currentRound = 20) {
-  endGame()
-}
 }
 
 const isTie = () => {
@@ -214,20 +211,15 @@ const endGame = () => {
     console.log(`${humanPlayer.name} collected ${humanPlayer.treasuresFound} treasures.`)
     console.log(`${cpuPlayer.name} collected ${cpuPlayer.treasuresFound} treasures.`)
     console.log(`${humanPlayer.name} wins!`)
-    return
   } else if (humanPlayer.treasuresFound === cpuPlayer.treasuresFound) {
     console.log(`${cpuPlayer.name} collected ${cpuPlayer.treasuresFound} treasures.`)
     console.log(`${humanPlayer.name} collected ${humanPlayer.treasuresFound} treasures.`)
     console.log(`It's a tie! Please play again.`)
-    return
   } else {
     console.log(`${humanPlayer.name} collected ${humanPlayer.treasuresFound} treasures.`)
     console.log(`${cpuPlayer.name} collected ${cpuPlayer.treasuresFound} treasures.`)
     console.log(`${cpuPlayer.name} wins! Better luck next time.`)
-    return
   }
 }
 
 startGame()
-
-// fix infinite loop at end of game
