@@ -77,9 +77,17 @@ const loadMap = () => {
 
 //  -- set up players - class --
 // window prompt to enter name and choices for later
-// let humanName = prompt("Please enter your name");
+
+
 // let humanChoice = prompt("Pick a number from 1-5");
 let humanName = "Player 1";
+let enterName = document.querySelector('#next-enter-name');
+enterName.addEventListener('click', () => {
+  let username = prompt('Please enter your name');
+  // need to connect username to variable to be used during gameplay
+
+});
+
 // using random number for humanChoice while creating the code, change later
 // create 5 buttons and click will be user input for variable humanChoice
 let humanChoice = Math.floor(Math.random() * 5) + 1;
@@ -194,6 +202,8 @@ const nextRound = () => {
 // ------------------------
 //   **** START GAME ****
 // ------------------------
+
+
 const startGame = () => {
   console.log(`Round ${currentRound}`)
   loadMap()
@@ -223,7 +233,7 @@ const endGame = () => {
 }
 
 // gameplay buttons
-let startButton = document.getElementById('start');
-  startButton.addEventListener('click', () => {
-    startGame()
-  });
+// let startButton = document.getElementById('start');
+//   startButton.addEventListener('click', () => {
+//     startGame()
+//   });

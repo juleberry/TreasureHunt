@@ -9,13 +9,28 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <div id="welcome-container">
+  <div id="welcome-container" class="section">
     <img id="treasure-map-blank" src="images\treasure-map-blank.png">
   <div class="welcome-screen centered-welcome">
     <h1 id="game-title">TREASURE HUNT</h1>
     <p id="game-intro">Embark on a quest to see<br>who finds the most treasure!</p>
-    <button id="start">START</button>
+    <button id="next-enter-name" class="main-button" onclick="location.href='/index.html#gameplay-area'">START GAME</button>
   </div>
 </div>
+
+<div class="gameplay-container">
+  <div id="gameplay-area" class="section">
+    <!-- <p class="enter-name">What is your name?</p>
+    <input placeholder="enter name here" required id="name-input" class="enter-name">
+    <button id="submit-name" class="enter-name gameplay-button">Submit</button> -->
+    <!-- <img src="images\treasure-hunt-props.jpg" id="name-screen-image enter-name"> -->
+    <button id="quit-game" class="main-button"><a href="#">QUIT GAME</a></button>
+  </div>
+
+  </div>
+  <div id="game-over" class="section">
+    Game over screen
+    <button id="quit-game" class="main-button"><a href="#">QUIT GAME</a></button>
+  </div>
 </body>
 </html>

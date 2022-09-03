@@ -1,19 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
 body {
-  background: linear-gradient(45deg, yellow, red
-  );
   margin: 0;
+  background-color:rgb(112, 112, 112);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:active {
+text-decoration: none;
 }
 
 div {
   text-align: center;
 }
 
-#welcome-container {
+.section {
   justify-content: center;
   align-items: center;
   /* background-color: goldenrod; */
   height: 100vh;
+  padding: 10px;
 }
 
 .centered-welcome {
@@ -26,10 +38,14 @@ div {
 .welcome-screen {
   z-index: 1;
   padding-top: 25%;
-  
 }
 
-#start {
+#welcome-container {
+  background: linear-gradient(0deg, rgb(107, 7, 11), rgb(160, 7, 7)
+  );
+}
+
+.main-button {
   border-radius: 3px;
   font-size: 1em;
   padding: .5em;
@@ -39,15 +55,60 @@ div {
   background-color: rgb(112, 112, 112);
 }
 
-#start:hover {
+.main-button:hover, .main-button:link, .main-button:visited {
   background-color: green;
-  color: black
+  color: goldenrod;
+}
+
+/* .main-button:active {
+  background-color: green;
+  color: white;
+}
+
+.main-button:visited {
+  background-color: green;
+  color: goldenrod;
+} */
+
+.gameplay-button {
+  border-radius: 3px;
+  font-size: 1em;
+  padding: .5em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: white;
+  font-weight: bold;
+  background-color: green
+}
+
+.gameplay-button:hover {
+  background-color: green;
+  color: goldenrod
+}
+
+.gameplay-button:active {
+  background-color:goldenrod;
+  color: white;
+}
+
+.gameplay-button:visited {
+  background-color: green;
+  color: goldenrod;
 }
 
 #treasure-map-blank {
-  width: 90vh;
+  width: 70%;
   margin-top: 50px;
   z-index: 0;
+}
+
+@media screen and (max-width: 650px) {
+  #welcome-screen {
+    background-color: goldenrod;
+  }
+  #treasure-map-blank {
+    display: none;
+  }
+  
 }
 
 #game-title {
@@ -61,4 +122,48 @@ div {
   font-size: 1rem;
   font-weight: bold;
   justify-content: center;
+}
+
+#name-screen-image {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+}
+
+input {
+  border-radius: 3px;
+  background-color: whitesmoke;
+  color:black;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: .5em;
+  margin-right: 5px;
+}
+
+#gameplay-area {
+  background-color: white;
+  height: 100vh;
+  text-align: center;
+  color: red;
+}
+
+#name-screen {
+  z-index: -1;
+}
+
+#name-input, #submit-name {
+  z-index: 1;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1rem;
+}
+
+.enter-name {
+  font-size: 2rem;
+  font-family: 'Pirata One', cursive;
+}
+
+.hidden {
+  display: none;
 }
