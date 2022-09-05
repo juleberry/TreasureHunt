@@ -137,20 +137,19 @@ const cpuPlayer = new Player("CPU", cpuChoice, token);
 const firstChoice = () => {
   let mainGamePlay = document.createElement('p')
   let mainGameBox = document.getElementById('gameplay-area2')
-
-// continue working here
-
   mainGameBox.appendChild(mainGamePlay)
   mainGamePlay.classList.add('game-text')
   mainGamePlay.innerText = "Let's see who chooses first..."
   let randomPlayer = document.createElement('button')
+  mainGameBox.appendChild(randomPlayer)
   randomPlayer.classList.add('main-button')
   randomPlayer.innerText = "Randomize"
   randomPlayer.addEventListener('click', () => {
   let human = Math.floor(Math.random() * 2) + 1;
   let cpu = Math.floor(Math.random() * 2) + 1;
   if (human === cpu) {
-    console.log(`${humanPlayer.name} chooses first!`);
+    mainGamePlay.innerText = `${humanPlayer.name} chooses first!`
+    // continue working here
     showChoices()
   } else {
     console.log(`${cpuPlayer.name} chooses first!`);
