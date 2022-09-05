@@ -75,18 +75,10 @@ const loadMap = () => {
   // --- end of sorted treasure map section ---
 
 //  -- set up players - class --
-// window prompt to enter name and choices for later
-
-
-// let humanChoice = prompt("Pick a number from 1-5");
-let humanName = "Player 1";
-// let enterName = document.querySelector('#next-enter-name');
-// enterName.addEventListener('click', () => {
-//   let username = prompt('Please enter your name');
-//   // need to connect username to variable to be used during gameplay
-
-// });
-
+// human player will input name later
+let humanName // to use inputted 'humanName' throughout the entire game, simply declare the variable
+let mainGamePlay
+let mainGameBox
 // using random number for humanChoice while creating the code, change later
 // create 5 buttons and click will be user input for variable humanChoice
 let humanChoice = Math.floor(Math.random() * 5) + 1;
@@ -128,6 +120,31 @@ class Player {
     }
   }
 }
+finalReveal(index) {
+  let num = index
+  let search = treasureMap[index]
+  if (currentRound === treasureMap.length) {
+  if (typeof search === "string") {
+    if (isWinner) {
+    console.log(`X marks the spot! ${this.name} found a treasure!`);
+    // increase winner's found treasures by 1
+    this.treasuresFound = token++
+    // then, increase Round by 1, currentRound by 1, and treasureMap[i] by 1 and return to showChoices()
+    endGame()
+    }
+  } else if (typeof search === "string") {
+    if (!isWinner) {
+    console.log('A treasure was left behind!')
+    // then, increase Round by 1, currentRound by 1, and treasureMap[i] by 1 and return to showChoices()
+    endGame()
+    }
+  } else {
+    console.log(`Oh no! ${this.name} found a rock!`);
+    // then, increase Round by 1, currentRound by 1, and treasureMap[i] by 1 and return to showChoices()
+    endGame()
+  }
+}
+}
 }
 
 const humanPlayer = new Player(humanName, humanChoice, token);
@@ -135,8 +152,8 @@ const cpuPlayer = new Player("CPU", cpuChoice, token);
 
 // randomly determine which player chooses first
 const firstChoice = () => {
-  let mainGamePlay = document.createElement('p')
-  let mainGameBox = document.getElementById('gameplay-area2')
+  mainGamePlay = document.createElement('p')
+  mainGameBox = document.getElementById('gameplay-area2')
   mainGameBox.appendChild(mainGamePlay)
   mainGamePlay.classList.add('game-text2')
   mainGamePlay.innerText = `Let's see who chooses first...  \n Click "Randomize"`
@@ -148,33 +165,46 @@ const firstChoice = () => {
   let human = Math.floor(Math.random() * 2) + 1;
   let cpu = Math.floor(Math.random() * 2) + 1;
   if (human === cpu) {
-    mainGamePlay.innerText = `${humanPlayer.name} chooses first!`
-    // continue working here
-    // showChoices()
+    let introImg = document.getElementById('cartoonMap')
+    introImg.classList.add('hidden')
+    randomPlayer.classList.add('hidden')
+    mainGamePlay.innerText = `${humanName} chooses first!`
+    showChoices()
   } else {
+    let introImg = document.getElementById('cartoonMap')
+    introImg.style.display = "none"
+    randomPlayer.classList.add('hidden')
     let pirateImg = document.createElement('img')
     pirateImg.setAttribute('src', '/images/pirate-player.png')
     pirateImg.style.width = '25%'
     mainGameBox.appendChild(pirateImg)
     mainGamePlay.innerText = `${cpuPlayer.name} chooses first!`;
-    randomPlayer.classList.add('hidden')
-    // showChoices()
+    showChoices()
   }
   })
 };
 
 // to win space, code will check if contents of the array index is a string (true or false) and will output the winner based on comparison of user's chosen number vs cpu's randomized number between 1 and maybe 6
 const showChoices = () => {
+  humanPlayer.name = humanName
+  let continueButton2 = document.createElement('button')
+    continueButton2.innerText = "Continue"
+    continueButton2.classList.add('main-button')
+    continueButton2.classList.add('dark')
+  let mainGameBox = document.getElementById('gameplay-area2')
+    mainGameBox.appendChild(continueButton2)
+    continueButton2.addEventListener('click', () => {
+      continueButton2.classList.add('main-button')
 if (humanChoice > cpuChoice) {
-  console.log(`${humanPlayer.name} chooses ${humanPlayer.choice}.`);
-  console.log(`${cpuPlayer.name} chose ${cpuPlayer.choice}.`);
+  mainGamePlay.innerText = `${humanPlayer.name} chooses ${humanPlayer.choice}.\n${cpuPlayer.name} chose ${cpuPlayer.choice}.`
   pickSpot()
   } else {
-  console.log(`${humanPlayer.name} chooses ${humanPlayer.choice}.`);
-  console.log(`${cpuPlayer.name} chose ${cpuPlayer.choice}.`);
+    mainGamePlay.innerText = `${humanPlayer.name} chooses ${humanPlayer.choice}.\n${cpuPlayer.name} chose ${cpuPlayer.choice}.`
   pickSpot()
   }
+})
 }
+
 const pickSpot = () => {
   while (currentRound <= 19) {
     if (isTie() === true) {
@@ -210,8 +240,24 @@ const isWinner = () => {
 const nextRound = () => {
   round++
   currentRound++
-  console.log(`Round ${currentRound}\nGet ready to choose a space...`)
+  console.log(`Round ${currentRound}`)
+  if (currentRound === 20) {
+      if (isTie() === true) {
+        console.log(`It's a tie! Let's see if there was a treasure...`);
+        cpuPlayer.finalReveal(round)
+      } else if (isWinner() === true) {
+        console.log(`${humanPlayer.name} digs for a treasure!\nLet's see what you found...`);
+        // then reveal if space is treasure and log to winner's score
+        humanPlayer.finalReveal(round)
+      } else {
+        console.log(`${cpuPlayer.name} digs for a treasure!\nLet's see if there was a treasure...`);
+        // then reveal if space is treasure and do not log to any player's 
+        cpuPlayer.finalReveal(round)
+      }
+    } else {
+  console.log('Get ready to choose a space...')
   showChoices()
+  }
 }
 
 // ------------------------
@@ -251,8 +297,7 @@ const endGame = () => {
 const getPlayerName = () => {
   let humanNameButton = document.getElementById('submit-name')
   humanNameButton.addEventListener('click', () => {
-  let name = document.getElementById('name-input')
-  humanName = name.value
+  humanName = document.getElementById('name-input').value
   if (humanName) {
     let welcomeName = document.getElementById('entered-name')
     welcomeName.innerText = `Welcome to the Treasure Hunt,\n${humanName}!`
@@ -264,6 +309,7 @@ const getPlayerName = () => {
     let continueHome = document.getElementById('gameplay-area')
     continueButton.innerText = "Continue"
     continueButton.classList.add('main-button')
+    continueButton.classList.add('dark')
     continueHome.appendChild(continueButton)
     continueButton.addEventListener('click', () => {
       window.location = '#gameplay-area2';

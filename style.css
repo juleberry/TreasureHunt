@@ -57,6 +57,10 @@ div {
   background-color: rgb(112, 112, 112);
 }
 
+.dark {
+  border-color: white;
+}
+
 .main-button:hover, .main-button:link, .main-button:visited {
   background-color: green;
   color: goldenrod;
