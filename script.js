@@ -256,7 +256,7 @@ const getPlayerName = () => {
 let startButton = document.getElementById('next-enter-name');
   startButton.addEventListener('click', () => {
     // startGame()
-    window.location = '#gameplay-area2';
+    window.location = '#gameplay-area';
     getPlayerName()
   });
 
