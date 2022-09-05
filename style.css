@@ -155,8 +155,8 @@ input {
 }
 
 #name-screen-image {
-  z-index: -1;
-  width: 50%;
+  z-index: 0;
+  width: 45%;
 }
 
 #name-input, #submit-name {
@@ -195,14 +195,25 @@ background-color: rgb(74, 2, 2);
 color: goldenrod;
 }
 
+#gameplay-area {
+  background-color: black;
+}
+
 #gameplay-area2 {
   background-color: goldenrod;
 }
 
 .game-text {
   font-size: 2rem;
-  font-weight: bold;
   font-family: 'Pirata One', cursive;
+  color: black;
+  z-index: 1;
+}
+
+.game-text2 {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: black;
   z-index: 1;
 }

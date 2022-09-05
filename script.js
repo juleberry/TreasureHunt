@@ -138,8 +138,8 @@ const firstChoice = () => {
   let mainGamePlay = document.createElement('p')
   let mainGameBox = document.getElementById('gameplay-area2')
   mainGameBox.appendChild(mainGamePlay)
-  mainGamePlay.classList.add('game-text')
-  mainGamePlay.innerText = "Let's see who chooses first..."
+  mainGamePlay.classList.add('game-text2')
+  mainGamePlay.innerText = `Let's see who chooses first...  \n Click "Randomize"`
   let randomPlayer = document.createElement('button')
   mainGameBox.appendChild(randomPlayer)
   randomPlayer.classList.add('main-button')
@@ -150,10 +150,15 @@ const firstChoice = () => {
   if (human === cpu) {
     mainGamePlay.innerText = `${humanPlayer.name} chooses first!`
     // continue working here
-    showChoices()
+    // showChoices()
   } else {
-    console.log(`${cpuPlayer.name} chooses first!`);
-    showChoices()
+    let pirateImg = document.createElement('img')
+    pirateImg.setAttribute('src', '/images/pirate-player.png')
+    pirateImg.style.width = '25%'
+    mainGameBox.appendChild(pirateImg)
+    mainGamePlay.innerText = `${cpuPlayer.name} chooses first!`;
+    randomPlayer.classList.add('hidden')
+    // showChoices()
   }
   })
 };
@@ -250,7 +255,7 @@ const getPlayerName = () => {
   humanName = name.value
   if (humanName) {
     let welcomeName = document.getElementById('entered-name')
-    welcomeName.innerText = `Welcome to the Treasure Hunt, ${humanName}!`
+    welcomeName.innerText = `Welcome to the Treasure Hunt,\n${humanName}!`
     let removeBoxes = document.querySelectorAll('.enter-name')
     for (const box of removeBoxes) {
       box.classList.add('hidden');
@@ -264,6 +269,7 @@ const getPlayerName = () => {
       window.location = '#gameplay-area2';
       let beginGameButton = document.getElementById('game-play')
       beginGameButton.addEventListener('click', () => {
+        beginGameButton.classList.add('hidden');
         startGame()
       })
   })}
