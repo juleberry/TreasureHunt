@@ -81,12 +81,12 @@ const loadMap = () => {
 
 // let humanChoice = prompt("Pick a number from 1-5");
 let humanName = "Player 1";
-let enterName = document.querySelector('#next-enter-name');
-enterName.addEventListener('click', () => {
-  let username = prompt('Please enter your name');
-  // need to connect username to variable to be used during gameplay
+// let enterName = document.querySelector('#next-enter-name');
+// enterName.addEventListener('click', () => {
+//   let username = prompt('Please enter your name');
+//   // need to connect username to variable to be used during gameplay
 
-});
+// });
 
 // using random number for humanChoice while creating the code, change later
 // create 5 buttons and click will be user input for variable humanChoice
@@ -232,8 +232,32 @@ const endGame = () => {
   }
 }
 
+const getPlayerName = () => {
+  let humanNameButton = document.getElementById('submit-name')
+  humanNameButton.addEventListener('click', () => {
+  let name = document.getElementById('name-input')
+  humanName = name.value
+  if (humanName) {
+    let welcomeName = document.getElementById('entered-name')
+    welcomeName.style.fontSize = '3rem'
+    welcomeName.innerText = `Welcome to the Treasure Hunt, ${humanName}!`
+    let removeBoxes = document.querySelectorAll('.enter-name')
+    for (const box of removeBoxes) {
+      box.classList.add('hidden');
+    }
+    let nextButton = document.createElement('button').classList.add('main-button')
+    nextButton.addEventListener('click', () => {
+      window.location = '#gameplay-area2';
+  })}
+  })
+}
+
 // gameplay buttons
-// let startButton = document.getElementById('start');
-//   startButton.addEventListener('click', () => {
-//     startGame()
-//   });
+let startButton = document.getElementById('next-enter-name');
+  startButton.addEventListener('click', () => {
+    // startGame()
+    window.location = '#gameplay-area';
+    getPlayerName()
+  });
+
+  
