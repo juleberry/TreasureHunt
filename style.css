@@ -193,3 +193,15 @@ input {
 background-color: rgb(140, 0, 0);
 color: yellow;
 }
+
+#gameplay-area2 {
+  background-color: goldenrod;
+}
+
+.game-text {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Pirata One', cursive;
+  color: black;
+  z-index: 1;
+}

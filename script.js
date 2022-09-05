@@ -205,10 +205,11 @@ const nextRound = () => {
 
 
 const startGame = () => {
-  console.log(`Round ${currentRound}`)
+  let announceRound = document.getElementById('game-round')
+  announceRound.innerText = `Round ${currentRound}`
   loadMap()
-  firstChoice()
-  endGame()
+  // firstChoice()
+  // endGame()
 }
 
 // =================
@@ -251,6 +252,10 @@ const getPlayerName = () => {
     continueHome.appendChild(continueButton)
     continueButton.addEventListener('click', () => {
       window.location = '#gameplay-area2';
+      let beginGameButton = document.getElementById('game-play')
+      beginGameButton.addEventListener('click', () => {
+        startGame()
+      })
   })}
   })
 }
@@ -262,5 +267,3 @@ let startButton = document.getElementById('next-enter-name');
     window.location = '#gameplay-area';
     getPlayerName()
   });
-
-  
