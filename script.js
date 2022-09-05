@@ -70,7 +70,6 @@ const loadMap = () => {
   // shuffles treasureMap
   // -----
   shuffle(treasureMap)
-  console.log(treasureMap)
   // ----
   };
   // --- end of sorted treasure map section ---
@@ -136,7 +135,18 @@ const cpuPlayer = new Player("CPU", cpuChoice, token);
 
 // randomly determine which player chooses first
 const firstChoice = () => {
-  console.log("Let's see who chooses first...")
+  let mainGamePlay = document.createElement('p')
+  let mainGameBox = document.getElementById('gameplay-area2')
+
+// continue working here
+
+  mainGameBox.appendChild(mainGamePlay)
+  mainGamePlay.classList.add('game-text')
+  mainGamePlay.innerText = "Let's see who chooses first..."
+  let randomPlayer = document.createElement('button')
+  randomPlayer.classList.add('main-button')
+  randomPlayer.innerText = "Randomize"
+  randomPlayer.addEventListener('click', () => {
   let human = Math.floor(Math.random() * 2) + 1;
   let cpu = Math.floor(Math.random() * 2) + 1;
   if (human === cpu) {
@@ -146,6 +156,7 @@ const firstChoice = () => {
     console.log(`${cpuPlayer.name} chooses first!`);
     showChoices()
   }
+  })
 };
 
 // to win space, code will check if contents of the array index is a string (true or false) and will output the winner based on comparison of user's chosen number vs cpu's randomized number between 1 and maybe 6
@@ -208,7 +219,7 @@ const startGame = () => {
   let announceRound = document.getElementById('game-round')
   announceRound.innerText = `Round ${currentRound}`
   loadMap()
-  // firstChoice()
+  firstChoice()
   // endGame()
 }
 
