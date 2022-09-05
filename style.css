@@ -60,7 +60,7 @@ div {
   color: goldenrod;
 }
 
-/* .main-button:active {
+.main-button:active {
   background-color: green;
   color: white;
 }
@@ -68,7 +68,7 @@ div {
 .main-button:visited {
   background-color: green;
   color: goldenrod;
-} */
+}
 
 .gameplay-button {
   border-radius: 3px;

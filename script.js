@@ -241,12 +241,17 @@ const getPlayerName = () => {
     let welcomeName = document.getElementById('entered-name')
     welcomeName.style.fontSize = '3rem'
     welcomeName.innerText = `Welcome to the Treasure Hunt, ${humanName}!`
+    document.querySelector('#quit-game').classList.add('hidden')
     let removeBoxes = document.querySelectorAll('.enter-name')
     for (const box of removeBoxes) {
       box.classList.add('hidden');
     }
-    let nextButton = document.createElement('button').classList.add('main-button')
-    nextButton.addEventListener('click', () => {
+    let continueButton = document.createElement('button')
+    let continueHome = document.getElementById('gameplay-area')
+    continueButton.innerText = "Continue"
+    continueButton.classList.add('main-button')
+    continueHome.appendChild(continueButton)
+    continueButton.addEventListener('click', () => {
       window.location = '#gameplay-area2';
   })}
   })
