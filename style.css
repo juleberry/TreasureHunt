@@ -2,6 +2,7 @@
 body {
   margin: 0;
   background-color:rgb(112, 112, 112);
+  /* overflow: hidden; */
 }
 
 a {
@@ -165,7 +166,7 @@ input {
 }
 
 .enter-name {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: 'Pirata One', cursive;
   z-index: 1;
 }
@@ -181,6 +182,14 @@ input {
   display: none;
 }
 
-#quit-game {
-  margin-top: 25px;
+#floating-quit {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+}
+
+#quit-game:hover {
+background-color: rgb(140, 0, 0);
+color: yellow;
 }

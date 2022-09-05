@@ -239,9 +239,7 @@ const getPlayerName = () => {
   humanName = name.value
   if (humanName) {
     let welcomeName = document.getElementById('entered-name')
-    welcomeName.style.fontSize = '3rem'
     welcomeName.innerText = `Welcome to the Treasure Hunt, ${humanName}!`
-    document.querySelector('#quit-game').classList.add('hidden')
     let removeBoxes = document.querySelectorAll('.enter-name')
     for (const box of removeBoxes) {
       box.classList.add('hidden');
