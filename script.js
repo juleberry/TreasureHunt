@@ -80,7 +80,8 @@ let humanName // to use inputted 'humanName' throughout the entire game, simply 
 
 // using random number for humanChoice while creating the code, change later
 // create 5 buttons and click will be user input for variable humanChoice
-let humanChoice = Math.floor(Math.random() * 5) + 1;
+// let humanChoice = Math.floor(Math.random() * 5) + 1;
+let humanChoice
 let cpuChoice = Math.floor(Math.random() * 5) + 1;
 
 class Player {
@@ -175,7 +176,7 @@ const firstChoice = () => {
     continueButton10.addEventListener('click', () => {
       mainGamePlay.classList.add('hidden')
       continueButton10.classList.add('hidden')
-    showChoices()
+      userChoicePrompt()
     })
   } else {
     let introImg = document.getElementById('cartoonMap')
@@ -196,7 +197,7 @@ const firstChoice = () => {
     continueButton11.addEventListener('click', () => {
       pirateImg.classList.add('hidden')
       continueButton11.classList.add('hidden')
-    showChoices()
+      userChoicePrompt()
     })
   }
   })
@@ -209,7 +210,6 @@ const showChoices = () => {
   mainGamePlay2.classList.add('game-text2')
   mainGameBox2.appendChild(mainGamePlay2)
   humanPlayer.name = humanName
-
     if (humanChoice > cpuChoice) {
   mainGamePlay2.innerText = `${humanPlayer.name} chooses ${humanPlayer.choice}.\n${cpuPlayer.name} chose ${cpuPlayer.choice}.`
   let continueButton12 = document.createElement('button')
@@ -313,7 +313,7 @@ const nextRound = () => {
       }
     } else {
   console.log('Get ready to choose a space...')
-  showChoices()
+  userChoicePrompt()
   }
 }
 
@@ -377,6 +377,15 @@ const getPlayerName = () => {
       })
   })}
   })
+}
+
+// prompt user for input from 1 - 5
+const userChoicePrompt = () => {
+  prompt('Choose a number between 1 and 5', '1, 2, 3, 4, or 5')
+  if (a != null) {
+humanChoice = prompt.value
+showChoices()
+  }
 }
 
 // gameplay buttons
