@@ -150,6 +150,16 @@ finalReveal(index) {
 const humanPlayer = new Player(humanName, humanChoice, token);
 const cpuPlayer = new Player("CPU", cpuChoice, token);
 
+// prompt user for input from 1 - 5
+const userChoicePrompt = () => {
+  let userChoice = prompt('Choose a number between 1 and 5', '1, 2, 3, 4, or 5')
+  if (userChoice != null) {
+humanChoice = userChoice
+showChoices()
+  }
+}
+
+
 // randomly determine which player chooses first
 const firstChoice = () => {
   let mainGamePlay = document.createElement('p')
@@ -211,18 +221,19 @@ const showChoices = () => {
   mainGameBox2.appendChild(mainGamePlay2)
   humanPlayer.name = humanName
     if (humanChoice > cpuChoice) {
-  mainGamePlay2.innerText = `${humanPlayer.name} chooses ${humanPlayer.choice}.\n${cpuPlayer.name} chose ${cpuPlayer.choice}.`
+  mainGamePlay2.innerText = `${humanPlayer.name} chooses ${humanChoice}.\n${cpuPlayer.name} chose ${cpuPlayer.choice}.`
   let continueButton12 = document.createElement('button')
-    let continueHome4 = document.getElementById('gameplay-area')
+    let continueHome4 = document.getElementById('gameplay-area2')
     continueButton12.innerText = "Continue"
     continueButton12.classList.add('main-button')
     continueButton12.classList.add('dark')
     continueHome4.appendChild(continueButton12)
     continueButton12.addEventListener('click', () => {
+      continueButton12.classList.add('hidden')
   pickSpot()
     })
   } else {
-    mainGamePlay2.innerText = `${humanPlayer.name} chooses ${humanPlayer.choice}.\n${cpuPlayer.name} chose ${cpuPlayer.choice}.`
+    mainGamePlay2.innerText = `${humanPlayer.name} chooses ${humanChoice}.\n${cpuPlayer.name} chose ${cpuPlayer.choice}.`
     let continueButton13 = document.createElement('button')
     let continueHome5 = document.getElementById('gameplay-area')
     continueButton13.innerText = "Continue"
@@ -377,15 +388,6 @@ const getPlayerName = () => {
       })
   })}
   })
-}
-
-// prompt user for input from 1 - 5
-const userChoicePrompt = () => {
-  prompt('Choose a number between 1 and 5', '1, 2, 3, 4, or 5')
-  if (a != null) {
-humanChoice = prompt.value
-showChoices()
-  }
 }
 
 // gameplay buttons
