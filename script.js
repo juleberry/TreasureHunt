@@ -77,8 +77,7 @@ const loadMap = () => {
 //  -- set up players - class --
 // human player will input name later
 let humanName // to use inputted 'humanName' throughout the entire game, simply declare the variable
-let mainGamePlay
-let mainGameBox
+
 // using random number for humanChoice while creating the code, change later
 // create 5 buttons and click will be user input for variable humanChoice
 let humanChoice = Math.floor(Math.random() * 5) + 1;
@@ -142,9 +141,9 @@ finalReveal(index) {
     console.log(`Oh no! ${this.name} found a rock!`);
     // then, increase Round by 1, currentRound by 1, and treasureMap[i] by 1 and return to showChoices()
     endGame()
+      }
+    }
   }
-}
-}
 }
 
 const humanPlayer = new Player(humanName, humanChoice, token);
@@ -152,8 +151,8 @@ const cpuPlayer = new Player("CPU", cpuChoice, token);
 
 // randomly determine which player chooses first
 const firstChoice = () => {
-  mainGamePlay = document.createElement('p')
-  mainGameBox = document.getElementById('gameplay-area2')
+  let mainGamePlay = document.createElement('p')
+  let mainGameBox = document.getElementById('gameplay-area2')
   mainGameBox.appendChild(mainGamePlay)
   mainGamePlay.classList.add('game-text2')
   mainGamePlay.innerText = `Let's see who chooses first...  \n Click "Randomize"`
@@ -165,59 +164,117 @@ const firstChoice = () => {
   let human = Math.floor(Math.random() * 2) + 1;
   let cpu = Math.floor(Math.random() * 2) + 1;
   if (human === cpu) {
-    let introImg = document.getElementById('cartoonMap')
-    introImg.classList.add('hidden')
     randomPlayer.classList.add('hidden')
     mainGamePlay.innerText = `${humanName} chooses first!`
+    let continueButton10 = document.createElement('button')
+    let continueHome2 = document.getElementById('gameplay-area2')
+    continueButton10.innerText = "Continue"
+    continueButton10.classList.add('main-button')
+    continueButton10.classList.add('dark')
+    continueHome2.appendChild(continueButton10)
+    continueButton10.addEventListener('click', () => {
+      mainGamePlay.classList.add('hidden')
+      continueButton10.classList.add('hidden')
     showChoices()
+    })
   } else {
     let introImg = document.getElementById('cartoonMap')
     introImg.style.display = "none"
     randomPlayer.classList.add('hidden')
     let pirateImg = document.createElement('img')
     pirateImg.setAttribute('src', '/images/pirate-player.png')
-    pirateImg.style.width = '25%'
+    pirateImg.style.width = '20%'
+    pirateImg.classList.add('pirate')
     mainGameBox.appendChild(pirateImg)
     mainGamePlay.innerText = `${cpuPlayer.name} chooses first!`;
+    let continueButton11 = document.createElement('button')
+    let continueHome3 = document.getElementById('gameplay-area2')
+    continueButton11.innerText = "Continue"
+    continueButton11.classList.add('main-button')
+    continueButton11.classList.add('dark')
+    continueHome3.appendChild(continueButton11)
+    continueButton11.addEventListener('click', () => {
+      pirateImg.classList.add('hidden')
+      continueButton11.classList.add('hidden')
     showChoices()
+    })
   }
   })
 };
 
 // to win space, code will check if contents of the array index is a string (true or false) and will output the winner based on comparison of user's chosen number vs cpu's randomized number between 1 and maybe 6
 const showChoices = () => {
+  let mainGamePlay2 = document.createElement('p')
+  let mainGameBox2 = document.getElementById('gameplay-area2')
+  mainGamePlay2.classList.add('game-text2')
+  mainGameBox2.appendChild(mainGamePlay2)
   humanPlayer.name = humanName
-  let continueButton2 = document.createElement('button')
-    continueButton2.innerText = "Continue"
-    continueButton2.classList.add('main-button')
-    continueButton2.classList.add('dark')
-  let mainGameBox = document.getElementById('gameplay-area2')
-    mainGameBox.appendChild(continueButton2)
-    continueButton2.addEventListener('click', () => {
-      continueButton2.classList.add('main-button')
-if (humanChoice > cpuChoice) {
-  mainGamePlay.innerText = `${humanPlayer.name} chooses ${humanPlayer.choice}.\n${cpuPlayer.name} chose ${cpuPlayer.choice}.`
+
+    if (humanChoice > cpuChoice) {
+  mainGamePlay2.innerText = `${humanPlayer.name} chooses ${humanPlayer.choice}.\n${cpuPlayer.name} chose ${cpuPlayer.choice}.`
+  let continueButton12 = document.createElement('button')
+    let continueHome4 = document.getElementById('gameplay-area')
+    continueButton12.innerText = "Continue"
+    continueButton12.classList.add('main-button')
+    continueButton12.classList.add('dark')
+    continueHome4.appendChild(continueButton12)
+    continueButton12.addEventListener('click', () => {
   pickSpot()
+    })
   } else {
-    mainGamePlay.innerText = `${humanPlayer.name} chooses ${humanPlayer.choice}.\n${cpuPlayer.name} chose ${cpuPlayer.choice}.`
+    mainGamePlay2.innerText = `${humanPlayer.name} chooses ${humanPlayer.choice}.\n${cpuPlayer.name} chose ${cpuPlayer.choice}.`
+    let continueButton13 = document.createElement('button')
+    let continueHome5 = document.getElementById('gameplay-area')
+    continueButton13.innerText = "Continue"
+    continueButton13.classList.add('main-button')
+    continueButton13.classList.add('dark')
+    continueHome5.appendChild(continueButton13)
+    continueButton13.addEventListener('click', () => {
   pickSpot()
+    })
   }
-})
 }
 
 const pickSpot = () => {
   while (currentRound <= 19) {
     if (isTie() === true) {
-      console.log(`It's a tie! Let's see if there was a treasure...`);
-      cpuPlayer.revealTreasure(round)
+      let mainGamePlay = document.createElement('p')
+      let mainGameBox2 = document.getElementById('gameplay-area2')
+      mainGameBox2.appendChild(mainGamePlay)
+      mainGamePlay.classList.add('game-text2')
+      mainGamePlay2.innerText = `It's a tie! Let's see if there was a treasure...`;
+      let continueButton3 = document.createElement('button')
+      continueButton3.innerText = "Continue"
+      continueButton3.classList.add('main-button')
+      continueButton3.classList.add('dark')
+      mainGameBox2.appendChild(continueButton3)
+      continueButton3.addEventListener('click', () => {
+        continueButton3.classList.add('hidden')
+        cpuPlayer.revealTreasure(round)
+      })
     } else if (isWinner() === true) {
-      console.log(`${humanPlayer.name} digs for a treasure!\nLet's see what you found...`);
-      // then reveal if space is treasure and log to winner's score
+      mainGamePlay2.innerText = `${humanPlayer.name} digs for a treasure!\nLet's see what you found...`;
+      let continueButton4 = document.createElement('button')
+      continueButton4.innerText = "Continue"
+      continueButton4.classList.add('main-button')
+      continueButton4.classList.add('dark')
+      mainGameBox2.appendChild(continueButton4)
+      continueButton4.addEventListener('click', () => {
+      continueButton4.classList.add('hidden')
       humanPlayer.revealTreasure(round)
-    } else {
-      console.log(`${cpuPlayer.name} digs for a treasure!\nLet's see if there was a treasure...`);
-      // then reveal if space is treasure and do not log to any player's 
+    })
+  } else {
+      mainGamePlay2.innerText = `${cpuPlayer.name} digs for a treasure!\nLet's see if there was a treasure...`;
+      // then reveal if space is treasure and do not log to any player's
+      let continueButton5 = document.createElement('button')
+      continueButton5.innerText = "Continue"
+      continueButton5.classList.add('main-button')
+      continueButton5.classList.add('dark')
+      mainGameBox2.appendChild(continueButton5)
+      continueButton5.addEventListener('click', () => {
+      continueButton5.classList.add('hidden')
       cpuPlayer.revealTreasure(round)
+      })
     }
   }
 }
@@ -300,7 +357,7 @@ const getPlayerName = () => {
   humanName = document.getElementById('name-input').value
   if (humanName) {
     let welcomeName = document.getElementById('entered-name')
-    welcomeName.innerText = `Welcome to the Treasure Hunt,\n${humanName}!`
+    welcomeName.innerText = `Welcome to the Treasure Hunt, ${humanName}!`
     let removeBoxes = document.querySelectorAll('.enter-name')
     for (const box of removeBoxes) {
       box.classList.add('hidden');
