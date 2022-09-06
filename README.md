@@ -1,9 +1,9 @@
 # TreasureHunt
 Per Scholas Week 6 Project
 
-Players: human vs computer
-Object of game: Players work to reveal as many treasures as they can from the treasure map.
-Gameplay:
+### Players: human vs computer
+### Object of game: Players work to reveal as many treasures as they can from the treasure map.
+## Gameplay:
 1. Click start and enter your name in the input field.
 2. An array of random "spaces" (the treasure map) is chosen and 7 random spaces are converted to "treasures" (strings) in the background. The game randomizes who gets to "pick" a spot to "dig" first.
 3. If computer is chosen to "pick", the game randomizes a choice between 1 and 5 to be the computer's choice. Then, allows the human player to "pick" a spot by inputting a number from 1 to 5 in a pop-up window.
