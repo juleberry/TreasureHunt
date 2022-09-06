@@ -1,4 +1,4 @@
-# TreasureHunt
+# Treasure Hunt
 Per Scholas Week 6 Project
 
 ### Players: human vs computer
