@@ -104,7 +104,13 @@ class Player {
       mainGameBox.appendChild(mainGamePlay)
       mainGamePlay.classList.add('game-text2')
       mainGamePlay.innerText = `X marks the spot! A treasure was found!`;
-      // increase winner's found treasures by 1
+      let introImg = document.getElementById('cartoonMap')
+      introImg.classList.add('hidden')
+let treasureImg = document.createElement('img')
+    treasureImg.setAttribute('src', '/images/treasure-chest.png')
+    treasureImg.classList.add('chest')
+    mainGameBox.appendChild(treasureImg)
+      // increase winner's found treasures by 1 -- fix this
       this.treasuresFound = token++
       // then, increase Round by 1, currentRound by 1, and treasureMap[i] by 1 and return to showChoices()
       num++
@@ -117,6 +123,8 @@ class Player {
       continueButton14.addEventListener('click', () => {
         mainGamePlay.classList.add('hidden')
         continueButton14.classList.add('hidden')
+        introImg.classList.remove('hidden')
+        treasureImg.classList.add('hidden')
       nextRound()
       })
     }
@@ -127,7 +135,12 @@ class Player {
       mainGameBox.appendChild(mainGamePlay)
       mainGamePlay.classList.add('game-text2')
       mainGamePlay.innerText = 'A treasure was left behind!'
-      // then, increase Round by 1, currentRound by 1, and treasureMap[i] by 1 and return to showChoices()
+      let introImg = document.getElementById('cartoonMap')
+      introImg.classList.add('hidden')
+let treasureImg = document.createElement('img')
+    treasureImg.setAttribute('src', '/images/treasure-chest.png')
+    mainGameBox.appendChild(treasureImg)
+    treasureImg.classList.add('chest')
       num++
       let continueButton14 = document.createElement('button')
       let continueHome3 = document.getElementById('gameplay-area2')
@@ -138,6 +151,8 @@ class Player {
       continueButton14.addEventListener('click', () => {
         mainGamePlay.classList.add('hidden')
         continueButton14.classList.add('hidden')
+        introImg.classList.remove('hidden')
+        treasureImg.classList.add('hidden')
       nextRound()
       })
     }
@@ -147,7 +162,13 @@ class Player {
       mainGameBox.appendChild(mainGamePlay)
       mainGamePlay.classList.add('game-text2')
       mainGamePlay.innerText = `Oh no! It was just a rock!`;
-      // then, increase Round by 1, currentRound by 1, and treasureMap[i] by 1 and return to showChoices()
+      let introImg = document.getElementById('cartoonMap')
+      introImg.classList.add('hidden')
+      let rockImg = document.createElement('img')
+    rockImg.setAttribute('src', '/images/rock01.png')
+    rockImg.style.width = '20%'
+    rockImg.classList.add('rock')
+    mainGameBox.appendChild(rockImg)
       num++
       let continueButton14 = document.createElement('button')
       let continueHome3 = document.getElementById('gameplay-area2')
@@ -156,8 +177,10 @@ class Player {
       continueButton14.classList.add('dark')
       continueHome3.appendChild(continueButton14)
       continueButton14.addEventListener('click', () => {
+        rockImg.classList.add('hidden')
         mainGamePlay.classList.add('hidden')
         continueButton14.classList.add('hidden')
+        introImg.classList.remove('hidden')
       nextRound()
       })
     }
@@ -175,8 +198,12 @@ const finalReveal = (index) => {
       let mainGameBox = document.getElementById('gameplay-area2')
       mainGameBox.appendChild(mainGamePlay)
       mainGamePlay.classList.add('game-text2')
-      mainGamePlay.innerText = `X marks the spot! ${this.name} found a treasure!`;
-    // increase winner's found treasures by 1
+      mainGamePlay.innerText = `X marks the spot! A treasure was found!`;
+      let treasureImg = document.createElement('img')
+    treasureImg.setAttribute('src', '/images/treasure-chest.png')
+    treasureImg.classList.add('chest')
+    mainGameBox.appendChild(treasureImg)
+    // increase winner's found treasures by 1 -- fix this
     this.treasuresFound = token++
     // then, increase Round by 1, currentRound by 1, and treasureMap[i] by 1 and return to showChoices()
     let continueButton15 = document.createElement('button')
@@ -184,10 +211,12 @@ const finalReveal = (index) => {
       continueButton15.innerText = "Continue"
       continueButton15.classList.add('main-button')
       continueButton15.classList.add('dark')
-      continueHome4.appendChild(continueButton14)
+      continueHome4.appendChild(continueButton15)
       continueButton15.addEventListener('click', () => {
         mainGamePlay.classList.add('hidden')
         continueButton15.classList.add('hidden')
+        treasureImg.classList.add('hidden')
+        window.location = '#gameplay-area3';
       endGame()
     })
   }
@@ -198,7 +227,12 @@ const finalReveal = (index) => {
       mainGameBox.appendChild(mainGamePlay)
       mainGamePlay.classList.add('game-text2')
       mainGamePlay.innerText = 'A treasure was left behind!'
-    // then, increase Round by 1, currentRound by 1, and treasureMap[i] by 1 and return to showChoices()
+      let introImg = document.getElementById('cartoonMap')
+      introImg.classList.add('hidden')
+      let treasureImg = document.createElement('img')
+      treasureImg.setAttribute('src', '/images/treasure-chest.png')
+      treasureImg.classList.add('chest')
+      mainGameBox.appendChild(treasureImg)
     let continueButton15 = document.createElement('button')
       let continueHome4 = document.getElementById('gameplay-area2')
       continueButton15.innerText = "Keep Digging!"
@@ -208,6 +242,9 @@ const finalReveal = (index) => {
       continueButton15.addEventListener('click', () => {
         mainGamePlay.classList.add('hidden')
         continueButton15.classList.add('hidden')
+        introImg.classList.remove('hidden')
+        treasureImg.classList.add('hidden')
+        window.location = '#gameplay-area3';
     endGame()
     })
   }
@@ -217,7 +254,13 @@ const finalReveal = (index) => {
       mainGameBox.appendChild(mainGamePlay)
       mainGamePlay.classList.add('game-text2')
       mainGamePlay.innerText = `Oh no! ${this.name} found a rock!`;
-    // then, increase Round by 1, currentRound by 1, and treasureMap[i] by 1 and return to showChoices()
+      let introImg = document.getElementById('cartoonMap')
+      introImg.classList.add('hidden')
+      let rockImg = document.createElement('img')
+    rockImg.setAttribute('src', '/images/rock01.png')
+    rockImg.style.width = '20%'
+    rockImg.classList.add('rock')
+    mainGameBox.appendChild(rockImg)
     let continueButton15 = document.createElement('button')
       let continueHome4 = document.getElementById('gameplay-area2')
       continueButton15.innerText = "Continue"
@@ -225,8 +268,11 @@ const finalReveal = (index) => {
       continueButton15.classList.add('dark')
       continueHome4.appendChild(continueButton14)
       continueButton15.addEventListener('click', () => {
+        rockImg.classList.add('hidden')
         mainGamePlay.classList.add('hidden')
         continueButton15.classList.add('hidden')
+        introImg.classList.remove('hidden')
+        window.location = '#gameplay-area3';
     endGame()
       })
     }
@@ -278,8 +324,9 @@ const firstChoice = () => {
     })
   } else {
     let introImg = document.getElementById('cartoonMap')
-    introImg.style.display = "none"
+    mainGameBox.appendChild(introImg)
     randomPlayer.classList.add('hidden')
+    introImg.classList.add('hidden')
     let pirateImg = document.createElement('img')
     pirateImg.setAttribute('src', '/images/pirate-player.png')
     pirateImg.style.width = '20%'
@@ -296,6 +343,7 @@ const firstChoice = () => {
       mainGamePlay.classList.add('hidden')
       pirateImg.classList.add('hidden')
       continueButton11.classList.add('hidden')
+      introImg.classList.remove('hidden')
       userChoicePrompt()
     })
   }
@@ -320,7 +368,6 @@ const showChoices = () => {
     continueButton12.addEventListener('click', () => {
       mainGamePlay2.classList.add('hidden')
       continueButton12.classList.add('hidden')
-      console.log('line 318')
       pickSpot()
     })
   } else {
@@ -338,7 +385,6 @@ const showChoices = () => {
     continueButton13.addEventListener('click', () => {
       mainGamePlay2.classList.add('hidden')
       continueButton13.classList.add('hidden')
-      console.log('line 336')
       pickSpot()
     })
   }
@@ -361,7 +407,6 @@ const pickSpot = () => {
       continueButton3.addEventListener('click', () => {
         mainGamePlay.classList.add('hidden')
         continueButton3.classList.add('hidden')
-        console.log('line 356')
         // cpuPlayer.revealTreasure(round)
         revealTreasure(round)
         
@@ -380,7 +425,6 @@ const pickSpot = () => {
       continueButton4.addEventListener('click', () => {
         mainGamePlay.classList.add('hidden')
       continueButton4.classList.add('hidden')
-      console.log('line 374')
       // humanPlayer.revealTreasure(round)
       revealTreasure(round)
     })
@@ -399,7 +443,6 @@ const pickSpot = () => {
       continueButton5.addEventListener('click', () => {
         mainGamePlay.classList.add('hidden')
       continueButton5.classList.add('hidden')
-      console.log('line 392')
       // cpuPlayer.revealTreasure(round)
       revealTreasure(round)
       })
@@ -505,7 +548,6 @@ const startGame = () => {
   announceRound.innerText = `Round ${currentRound}`
   loadMap()
   firstChoice()
-  // endGame()
 }
 
 // =================
@@ -513,20 +555,55 @@ const startGame = () => {
 // =================
 // Game will end and reveal the total of how many treasures found and determine winner of entire game
 const endGame = () => {
-  console.log(`It's been a great treasure hunt!\nLet's see who won...`)
+  let gameEnd = document.createElement('p')
+      let mainGameBox3 = document.getElementById('gameplay-area3')
+      gameEnd.classList.add('game-text2')
+      mainGameBox3.appendChild(gameEnd)
+      gameEnd.innerText = `It's been a great treasure hunt!\nLet's see who won...`
+      let continueButton20 = document.createElement('button')
+      continueButton20.innerText = "Continue"
+      continueButton20.classList.add('main-button')
+      continueButton20.classList.add('dark')
+      mainGameBox3.appendChild(continueButton20)
+      continueButton20.addEventListener('click', () => {
+      continueButton20.classList.add('hidden')
+      let quitGameButton = getElementById('quit-game')
+      quitGameButton.classList.add('hidden')
+      let treasureImg = document.createElement('img')
+    treasureImg.setAttribute('src', '/images/treasure-chest.png')
+    treasureImg.classList.add('chest')
+    mainGameBox3.appendChild(treasureImg)
+      let finalQuitGameButton = getElementById('final-quit-game')
+      finalQuitGameButton.classList.remove('hidden')
   if (humanPlayer.treasuresFound > cpuPlayer.treasuresFound) {
-    console.log(`${humanPlayer.name} collected ${humanPlayer.treasuresFound} treasures.`)
-    console.log(`${cpuPlayer.name} collected ${cpuPlayer.treasuresFound} treasures.`)
-    console.log(`${humanPlayer.name} wins!`)
+    let gameEnd = document.createElement('p')
+      let mainGameBox3 = document.getElementById('gameplay-area3')
+      gameEnd.classList.add('game-text2')
+      mainGameBox3.appendChild(gameEnd)
+      gameEnd.innerText = `${humanPlayer.name} collected ${humanPlayer.treasuresFound} treasures.\n${cpuPlayer.name} collected ${cpuPlayer.treasuresFound} treasures.\n${humanPlayer.name} wins!`
+    finalQuitGameButton.addEventListener('click', () => {
+      window.location = '#'
+    })
   } else if (humanPlayer.treasuresFound === cpuPlayer.treasuresFound) {
-    console.log(`${cpuPlayer.name} collected ${cpuPlayer.treasuresFound} treasures.`)
-    console.log(`${humanPlayer.name} collected ${humanPlayer.treasuresFound} treasures.`)
-    console.log(`It's a tie! Please play again.`)
+    let gameEnd = document.createElement('p')
+      let mainGameBox3 = document.getElementById('gameplay-area3')
+      gameEnd.classList.add('game-text2')
+      mainGameBox3.appendChild(gameEnd)
+      gameEnd.innerText = `${cpuPlayer.name} collected ${cpuPlayer.treasuresFound} treasures.\n${humanPlayer.name} collected ${humanPlayer.treasuresFound} treasures.\nIt's a tie! Please play again.`
+    finalQuitGameButton.addEventListener('click', () => {
+      window.location = '#'
+    })
   } else {
-    console.log(`${humanPlayer.name} collected ${humanPlayer.treasuresFound} treasures.`)
-    console.log(`${cpuPlayer.name} collected ${cpuPlayer.treasuresFound} treasures.`)
-    console.log(`${cpuPlayer.name} wins! Better luck next time.`)
+    let gameEnd = document.createElement('p')
+      let mainGameBox3 = document.getElementById('gameplay-area3')
+      gameEnd.classList.add('game-text2')
+      mainGameBox3.appendChild(gameEnd)
+      gameEnd.innerText = `${humanPlayer.name} collected ${humanPlayer.treasuresFound} treasures.\n${cpuPlayer.name} collected ${cpuPlayer.treasuresFound} treasures.\n${cpuPlayer.name} wins!\nBetter luck next time.`
+    finalQuitGameButton.addEventListener('click', () => {
+      window.location = '#'
+    })
   }
+})
 }
 
 const getPlayerName = () => {
@@ -535,7 +612,7 @@ const getPlayerName = () => {
   humanName = document.getElementById('name-input').value
   if (humanName) {
     let welcomeName = document.getElementById('entered-name')
-    welcomeName.innerText = `Welcome to the Treasure Hunt, ${humanName}!\nFind as much treasure as you can in 20 Rounds.`
+    welcomeName.innerText = `Welcome to the Treasure Hunt, ${humanName}!`
     let removeBoxes = document.querySelectorAll('.enter-name')
     for (const box of removeBoxes) {
       box.classList.add('hidden');

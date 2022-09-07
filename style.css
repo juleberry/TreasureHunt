@@ -23,7 +23,7 @@ div {
 }
 
 .section {
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   /* background-color: goldenrod; */
   height: 100vh;
@@ -51,6 +51,7 @@ div {
   border-radius: 3px;
   font-size: 1em;
   padding: .5em;
+  margin-top: 5px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: white;
   font-weight: bold;
@@ -205,6 +206,12 @@ color: goldenrod;
 
 #gameplay-area2 {
   background-color: goldenrod;
+  display: flex;
+  flex-direction: column;
+}
+
+#gameplay-area3 {
+  background-color: black;
 }
 
 .game-text {
@@ -230,3 +237,12 @@ margin-top: 50px;
   width: 25%;
 }
 
+.chest {
+  height: auto;
+  width: 10rem;
+}
+
+.rock {
+  height: 10rem;
+  width: auto;
+}
