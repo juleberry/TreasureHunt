@@ -557,7 +557,8 @@ const startGame = () => {
 const endGame = () => {
   let gameEnd = document.createElement('p')
       let mainGameBox3 = document.getElementById('gameplay-area3')
-      gameEnd.classList.add('game-text2')
+      gameEnd.classList.add('game-text')
+      gameEnd.style.color = "red"
       mainGameBox3.appendChild(gameEnd)
       gameEnd.innerText = `It's been a great treasure hunt!\nLet's see who won...`
       let continueButton20 = document.createElement('button')
