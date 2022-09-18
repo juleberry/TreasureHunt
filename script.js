@@ -207,16 +207,16 @@ const finalReveal = (index) => {
     this.treasuresFound = token++
     // then, increase Round by 1, currentRound by 1, and treasureMap[i] by 1 and return to showChoices()
     let continueButton15 = document.createElement('button')
-      let continueHome4 = document.getElementById('gameplay-area2')
+    let continueHome4 = document.getElementById('gameplay-area2')
       continueButton15.innerText = "Continue"
       continueButton15.classList.add('main-button')
       continueButton15.classList.add('dark')
       continueHome4.appendChild(continueButton15)
       continueButton15.addEventListener('click', () => {
+        window.location = '#gameplay-area3';
         mainGamePlay.classList.add('hidden')
         continueButton15.classList.add('hidden')
         treasureImg.classList.add('hidden')
-        window.location = '#gameplay-area3';
       endGame()
     })
   }
@@ -240,11 +240,11 @@ const finalReveal = (index) => {
       continueButton15.classList.add('dark')
       continueHome4.appendChild(continueButton14)
       continueButton15.addEventListener('click', () => {
+        window.location = '#gameplay-area3';
         mainGamePlay.classList.add('hidden')
         continueButton15.classList.add('hidden')
         introImg.classList.remove('hidden')
         treasureImg.classList.add('hidden')
-        window.location = '#gameplay-area3';
     endGame()
     })
   }
@@ -266,13 +266,13 @@ const finalReveal = (index) => {
       continueButton15.innerText = "Continue"
       continueButton15.classList.add('main-button')
       continueButton15.classList.add('dark')
-      continueHome4.appendChild(continueButton14)
+      continueHome4.appendChild(continueButton15)
       continueButton15.addEventListener('click', () => {
+        window.location = '#gameplay-area3';
         rockImg.classList.add('hidden')
         mainGamePlay.classList.add('hidden')
         continueButton15.classList.add('hidden')
         introImg.classList.remove('hidden')
-        window.location = '#gameplay-area3';
     endGame()
       })
     }
@@ -568,13 +568,13 @@ const endGame = () => {
       mainGameBox3.appendChild(continueButton20)
       continueButton20.addEventListener('click', () => {
       continueButton20.classList.add('hidden')
-      let quitGameButton = getElementById('quit-game')
+      let quitGameButton = document.getElementById('quit-game')
       quitGameButton.classList.add('hidden')
       let treasureImg = document.createElement('img')
     treasureImg.setAttribute('src', '/images/treasure-chest.png')
     treasureImg.classList.add('chest')
     mainGameBox3.appendChild(treasureImg)
-      let finalQuitGameButton = getElementById('final-quit-game')
+      let finalQuitGameButton = document.getElementById('final-quit-game')
       finalQuitGameButton.classList.remove('hidden')
   if (humanPlayer.treasuresFound > cpuPlayer.treasuresFound) {
     let gameEnd = document.createElement('p')
