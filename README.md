@@ -14,3 +14,7 @@ Per Scholas Week 6 Project
 8. Whoever is allowed to claim the space, then adds the the "treasure" to their treasure bag.
 9. Gameplay repeats allowing computer and human to "pick" and "reveal" spaces until they have worked through the entire treasure map.
 10. Once the entire treasure map has been "searched" then the winner is determined and celebrated to end the game.
+
+## Future Ideas and Features:
+* Add a treasure "bag" where the scores will be kept.
+* Add sound effects.
