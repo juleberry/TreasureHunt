@@ -1,5 +1,4 @@
 # Treasure Hunt
-Per Scholas Week 6 Project
 
 ### Players: human vs computer
 ### Object of game: Players work to reveal as many treasures as they can from the treasure map.
